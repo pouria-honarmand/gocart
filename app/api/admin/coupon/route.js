@@ -41,7 +41,7 @@ export async function POST(request) {
   }
 }
 
-// ✅ Delete coupon /api/coupon?code=COUPON_CODE
+// ✅ Delete coupon /api/admin/coupon?code=COUPON_CODE
 export async function DELETE(request) {
   try {
     const { userId } = getAuth(request);
@@ -56,7 +56,10 @@ export async function DELETE(request) {
     const code = searchParams.get("code");
 
     if (!code) {
-      return NextResponse.json({ error: "missing coupon code" }, { status: 400 });
+      return NextResponse.json(
+        { error: "missing coupon code" },
+        { status: 400 }
+      );
     }
 
     await prisma.coupon.delete({ where: { code } });
@@ -70,6 +73,8 @@ export async function DELETE(request) {
     );
   }
 }
+
+
 
 // ✅ Get all coupons
 export async function GET(request) {
