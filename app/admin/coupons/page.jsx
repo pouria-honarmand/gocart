@@ -23,7 +23,7 @@ export default function AdminCoupons() {
     try {
       const token = await getToken();
 
-      const { data } = await axios.get("/api/admin/coupon", {
+      const { data } = await axios.get('/api/admin/coupon', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -37,9 +37,6 @@ export default function AdminCoupons() {
 
   const handleAddCoupon = async (e) => {
     e.preventDefault();
-
-    I;
-
     try {
       const token = await getToken();
 
@@ -75,7 +72,7 @@ export default function AdminCoupons() {
 
       const token = await getToken();
 
-      await axios.delete("/api/admin/coupon?code=${code}", {
+      await axios.delete(`/api/admin/coupon?code=${code}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
